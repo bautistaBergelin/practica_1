@@ -19,6 +19,7 @@ answers = [
     ),
     ("=", "==", "!=", "==="),
 ]
+response = ["1","2","3","4"]
 # Índice de la respuesta correcta para cada pregunta, el mismo orden que las preguntas
 correct_answers_index = [1, 2, 0, 3, 1]
 # El usuario deberá contestar 3 preguntas
@@ -31,9 +32,20 @@ for _ in range(3):
         print(f"{i + 1}. {answer}")
     # El usuario tiene 2 intentos para responder correctamente
     for intento in range(2):
-        user_answer = int(input("Respuesta: ")) - 1
-        # Se verifica si la respuesta es correcta
-        if user_answer == correct_answers_index[question_index]:
+        user_answer = (input("Respuesta: ")) 
+        #se verifica que la respuesta sea valida para evaluar
+        is_valid = False
+        for i in response:
+            if (i == user_answer):
+                #si es una respuesta valida y se realiza la conversion de la respueta a int
+                is_valid = True
+                user_answer = int(user_answer) - 1 
+        #si el usuario no ingreso una respuesta valida, se termina el proograma y se notifica al usuario
+        if (not is_valid):
+            print("respuesta no valida")
+            exit(1)
+        #se evalua si la respues es correcta
+        elif user_answer == correct_answers_index[question_index]:
             print("¡Correcto!")
             break
     else:
