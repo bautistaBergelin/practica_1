@@ -1,3 +1,4 @@
+import random
 questions = [
     "¿Qué función se usa para obtener la longitud de una cadena en Python?",
     "¿Cuál de las siguientes opciones es un número entero en Python?",
@@ -31,14 +32,14 @@ for _ in range(3):
     # El usuario tiene 2 intentos para responder correctamente
     for intento in range(2):
         user_answer = int(input("Respuesta: ")) - 1
-    # Se verifica si la respuesta es correcta
-    if user_answer == correct_answers_index[question_index]:
-        print("¡Correcto!")
-        break
+        # Se verifica si la respuesta es correcta
+        if user_answer == correct_answers_index[question_index]:
+            print("¡Correcto!")
+            break
     else:
         # Si el usuario no responde correctamente después de 2 intentos,
         # se muestra la respuesta correcta
         print("Incorrecto. La respuesta correcta es:")
         print(answers[question_index][correct_answers_index[question_index]])
-    # Se imprime un blanco al final de la pregunta
-    print()
+        # Se imprime un blanco al final de la pregunta
+        print()
