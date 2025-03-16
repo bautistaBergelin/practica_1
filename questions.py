@@ -26,7 +26,7 @@ score = float(0)
 # Índice de la respuesta correcta para cada pregunta, el mismo orden que las preguntas
 correct_answers_index = [1, 2, 0, 3, 1]
 #inicialiacion de la lista que contiene cada pregunta, opciones y respueta por intento aleatoriamente 
-questions_to_ask = random.choices(list(zip(questions,answers, correct_answers_index)), k=3)
+questions_to_ask = random.sample(list(zip(questions,answers, correct_answers_index)), k=3)
 # El usuario deberá contestar 3 preguntas
 for i in questions_to_ask:
     print(f"su puntaje es {score}")
