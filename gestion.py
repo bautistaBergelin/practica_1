@@ -9,6 +9,7 @@ def print_options():
         print(f"{i + 1}. {option}")
 #inicio de programa
 while True:
+    print("")
     print_options()
     entry = (input())
     if entry == "1":
@@ -18,11 +19,15 @@ while True:
             inventory[product] = quantity
         else:
             print("el producto ya existe")
-    #elif entry =="2":
-    
+    elif entry =="2":
+        product = input("ingrese el nombre de producto a eliminar ")
+        if inventory.get(product, "no esta") != "no esta":
+            inventory.pop(product)
+        else:
+            print("el producto no existe en el inventario")
     elif entry =="3":
         for i,j in inventory.items():
-            print(i,j)
+            print(f"producto: {i} cantidad: {j}")
     elif entry == "4":
         break
     else:
